@@ -96,23 +96,27 @@
         <p>hello xingyuan</p>
 <p>[toc]</p>
 <p>这一篇就记录一下搭建博客的全过程把😊</p>
-<h5 id="hexo-写文章操作"><a href="#hexo-写文章操作" class="headerlink" title="hexo 写文章操作"></a>hexo 写文章操作</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我的第一篇文章&quot;</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h5><span id="hexo-写文章操作">hexo 写文章操作</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;我的第一篇文章&quot;</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
-<h5 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+<h5><span id="插入图片">插入图片</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
 
 
 
 <p>优先相对路径 + 复制/拖拽</p>
 <p><img src="/2021/12/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/photo.jpg" alt="photo"></p>
-<h5 id="创建文章时固定的格式"><a href="#创建文章时固定的格式" class="headerlink" title="创建文章时固定的格式"></a>创建文章时固定的格式</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scaffolds/post.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">comments: true  #是否可评论</span><br><span class="line">categories: hexo</span><br><span class="line">tags: [love,hexo,搭建hexo]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h5><span id="创建文章时固定的格式">创建文章时固定的格式</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scaffolds/post.md</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">comments: true  #是否可评论</span><br><span class="line">categories: hexo</span><br><span class="line">tags: [love,hexo,搭建hexo]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-<h5 id="Hexo支持toc目录"><a href="#Hexo支持toc目录" class="headerlink" title="Hexo支持toc目录"></a>Hexo支持toc目录</h5><h5 id="Hexo在多台电脑上提交和更新github-pages"><a href="#Hexo在多台电脑上提交和更新github-pages" class="headerlink" title="Hexo在多台电脑上提交和更新github pages"></a>Hexo在多台电脑上提交和更新github pages</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.jianshu.com/p/0b1fccce74e0?tdsourcetag=s_pcqq_aiomsg</span><br></pre></td></tr></table></figure>
+<h5><span id="hexo支持toc目录">Hexo支持toc目录</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-toc --save</span><br><span class="line"></span><br><span class="line">配置</span><br><span class="line">在博客根目录下的 _config.yml 中如下配置：</span><br><span class="line">toc:</span><br><span class="line">  maxDepth: 3</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5><span id="hexo在多台电脑上提交和更新github-pages">Hexo在多台电脑上提交和更新github pages</span></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.jianshu.com/p/0b1fccce74e0?tdsourcetag=s_pcqq_aiomsg</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckww1twxf0001r8uuebo3eaua" data-title="我的第一篇博客" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckww2387x0001tcuubly05j20" data-title="我的第一篇博客" class="article-share-link">Share</a>
       
       
       
@@ -148,23 +152,23 @@
       
         <p>怎么才能修改样式呢</p>
 <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="quick-start">Quick Start</span></h2><h3><span id="create-a-new-post">Create a new post</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3><span id="run-server">Run server</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3><span id="generate-static-files">Generate static files</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3><span id="deploy-to-remote-sites">Deploy to remote sites</span></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/12/07/hello-world/" data-id="ckww1twxb0000r8uu41tzbpb9" data-title="hello lixingyuan" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/12/07/hello-world/" data-id="ckww2387j0000tcuu55nbbl98" data-title="hello lixingyuan" class="article-share-link">Share</a>
       
       
       
