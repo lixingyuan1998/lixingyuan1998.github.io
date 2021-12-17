@@ -20,15 +20,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述 这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊">
+<meta name="description" content="这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述 这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊 （12.17 更）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五篇章-GNN for Recommendation 三篇综述笔记">
 <meta property="og:url" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="origin_star">
-<meta property="og:description" content="这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述 这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊">
+<meta property="og:description" content="这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述 这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊 （12.17 更）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-14T12:48:38.000Z">
-<meta property="article:modified_time" content="2021-12-16T05:55:35.889Z">
+<meta property="article:modified_time" content="2021-12-17T08:33:57.782Z">
 <meta property="article:author" content="Xingyuan">
 <meta property="article:tag" content="GNN">
 <meta property="article:tag" content="recommendation">
@@ -116,7 +116,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -129,6 +129,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E5%87%BA%E4%B8%8D%E5%90%8C%E4%BA%8E%E7%AC%AC%E4%B8%80%E7%AF%87survey%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">1.</span> <span class="nav-text">指出不同于第一篇survey的地方：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#stage-scenario-objective-application"><span class="nav-number">2.</span> <span class="nav-text">stage, scenario, objective, application</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -229,7 +230,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-12-16 13:55:35" itemprop="dateModified" datetime="2021-12-16T13:55:35+08:00">2021-12-16</time>
+      <time title="修改时间：2021-12-17 16:33:57" itemprop="dateModified" datetime="2021-12-17T16:33:57+08:00">2021-12-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,14 +255,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>928</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -274,6 +275,7 @@
     <div class="post-body" itemprop="articleBody">
         <p>这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述</p>
 <p>这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊</p>
+<p>（12.17 更）</p>
 <span id="more"></span>
 
 <p>主要包括：</p>
@@ -294,7 +296,7 @@
 
 <hr>
 <p><strong>Graph Neural Networks in Recommender Systems: A Survey</strong></p>
-<p>未来的研究方向：</p>
+<p><strong>未来的研究方向：</strong></p>
 <p>异构图的高效gnn</p>
 <p> 推荐系统中的大多数图数据是异构的，如用户-项二部图和知识图。在利用GNN进行推荐的现有工作中提出的图神经网络可以看作是基本GNN结构的变体</p>
 <p>多图的信息聚合</p>
@@ -303,10 +305,10 @@
 <p>序列推荐的序列图构造</p>
 <hr>
 <p><strong>Graph Learning based Recommender Systems: A Review</strong></p>
-<p>动机:为什么图表学习适用于RS?</p>
+<p><strong>动机:为什么图表学习适用于RS?</strong></p>
 <p>RS中的大多数数据本质上是一个图结构。</p>
 <p>图学习具有学习复杂关系的能力。</p>
-<p>未来开放的研究方向：</p>
+<p><strong>未来开放的研究方向：</strong></p>
 <p>具有动态图学习的RS</p>
 <p>因果图学习的可解释RS</p>
 <p>具有多重图学习的跨域RS</p>
@@ -314,7 +316,48 @@
 <hr>
 <p><strong>Graph Neural Networks for Recommender Systems:</strong></p>
 <p><strong>Challenges, Methods, and Directions</strong></p>
-<p>开放的问题和未来的方向</p>
+<h5 id="指出不同于第一篇survey的地方"><a href="#指出不同于第一篇survey的地方：" class="headerlink" title="指出不同于第一篇survey的地方："></a><strong>指出不同于第一篇survey的地方</strong>：</h5><ol>
+<li><p>非序列推荐和序列推荐的划分不合理，顺序推荐只是一个特定的推荐场景 ，有特殊的输入和输出设置</p>
+</li>
+<li><p>没有提供充分的解释为什么GNN可以并且应该用于推荐系统动机和原因</p>
+</li>
+<li><p>没有解释应用图神经网络推荐的关键挑战和如何解决</p>
+</li>
+</ol>
+<h5 id="stage-scenario-objective-application"><a href="#stage-scenario-objective-application" class="headerlink" title="stage, scenario, objective, application"></a><strong>stage, scenario, objective, application</strong></h5><p><strong>stage:</strong></p>
+<p>Matching:这个阶段的核心任务是高效地检索潜在的相关项，并获得用户兴趣的粗粒度建模。</p>
+<p>Ranking:这个阶段的关键挑战是设计适当的模型来捕获复杂的特性交互。</p>
+<p>Re-ranking:满足其他重要的要求，比如新鲜度、多样性、公平性,这个阶段的主要关注点是考虑得分最高的项目之间的多重关系,例如，相似的或可替换的项目可能导致信息冗余.  </p>
+<hr>
+<p><strong>scenario:</strong></p>
+<p><strong>Social Recommendation</strong>:</p>
+<p>视频平台可能只是因为微信好友的喜欢行为而喜欢一些视频。 在 与此同时，社会同质性是许多社交平台上的另一个流行现象，即人们倾向于与有相似偏好的人建立社会关系</p>
+<p><strong>Sequential Recommendation</strong>:</p>
+<p>顺序推荐使用用户的历史记录行为序列学习时间戳感知的序列模式，以推荐下一个项目用户可能会感兴趣</p>
+<p>当序列长度增加时，同时对用户的短期、长期和动态兴趣进行建模</p>
+<p>因为物品可以在多个序列中出现或者用户有多个序列，不同序列之间需要协作信号</p>
+<p>**Session-based Recommendation.**：</p>
+<p>用户属性和长期的历史互动是不可用的，只有来自匿名用户的短会话数据</p>
+<p>**Bundle Recommendation.**：</p>
+<p>Bundle是一种物品的集合，这是一种重要的营销方式 产品推广策略, Bundle推荐的目的是推荐一个组合  </p>
+<p>供用户消费的项目比如，Spotify上的音乐播放列表、Pinterest上的插页板、亚马逊上的电脑和宜家上的家具套装</p>
+<p><strong>Cross-Domain Recommendation</strong>:</p>
+<p>跨域推荐(CDR)已被证明是解决冷启动和数据稀疏问题的一种有前途的方法,单目标推荐和双目标推荐。 单目标方法将信息从源域转移到目标域; 双目标强调相互利用来自源域和目标域。</p>
+<p><strong>Multi-behavior Recommendation.</strong></p>
+<p>用户与多个推荐系统交互 行为类型，而不是只有一种行为，尽管推荐系统的最终目的是推荐  </p>
+<p>用户会购买的产品，用户购买行为与收藏、分享等行为与相比非常少  </p>
+<p>不同的行为对目标行为有不同的影响，有些行为可能是强信号，有些可能是弱信号 ，</p>
+<p>学习全面的表征具有挑战性，不同的行为从不同类型的项目行为反映了用户的不同偏好; </p>
+<hr>
+<p><strong>objective</strong> 目标: </p>
+<p><strong>Diversity</strong>：多样性</p>
+<p>推荐系统通常考虑两种类型的多样性，即个体级多样性和系统级多样性</p>
+<p>个体层次的多样性反映了推荐列表涵盖的主题数量以及推荐条目在不同主题上分布的平衡性</p>
+<p>系统级多样性有时被称为长尾推荐，低系统级多样性意味着总是推荐所有用户的流行项目，而忽略长尾项目</p>
+<p><strong>Explainability</strong>：可解释性</p>
+<p><strong>Fairness</strong>： 公平性</p>
+<p>application:</p>
+<p><strong>开放的问题和未来的方向</strong></p>
 <p>深层GNN捕获图中高阶相似性</p>
 <p>动态图推荐</p>
 <p>知识图增强的推荐</p>
@@ -385,14 +428,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">37k</span>
+    <span title="站点总字数">38k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">35 分钟</span>
   </span>
 </div>
 
