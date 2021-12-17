@@ -27,13 +27,18 @@
 <meta property="og:site_name" content="origin_star">
 <meta property="og:description" content="这一篇章主要总结一下研究生阶段的研究方向–基于图神经网络的推荐算法，开篇的几文章是几篇最新的综述 这部分更希望对几篇综述中提到的文章从思想上有进一步理解，这几天会着重更新这一篇章~😊 （12.17 更）">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/stage.png">
+<meta property="og:image" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/sequence.png">
+<meta property="og:image" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/session.png">
+<meta property="og:image" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/GNN_type.png">
 <meta property="article:published_time" content="2021-12-14T12:48:38.000Z">
-<meta property="article:modified_time" content="2021-12-17T08:33:57.782Z">
+<meta property="article:modified_time" content="2021-12-17T10:26:14.793Z">
 <meta property="article:author" content="Xingyuan">
 <meta property="article:tag" content="GNN">
 <meta property="article:tag" content="recommendation">
 <meta property="article:tag" content="survey">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/stage.png">
 
 
 <link rel="canonical" href="http://example.com/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/">
@@ -230,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-12-17 16:33:57" itemprop="dateModified" datetime="2021-12-17T16:33:57+08:00">2021-12-17</time>
+      <time title="修改时间：2021-12-17 18:26:14" itemprop="dateModified" datetime="2021-12-17T18:26:14+08:00">2021-12-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,14 +260,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -324,7 +329,9 @@
 <li><p>没有解释应用图神经网络推荐的关键挑战和如何解决</p>
 </li>
 </ol>
+<hr>
 <h5 id="stage-scenario-objective-application"><a href="#stage-scenario-objective-application" class="headerlink" title="stage, scenario, objective, application"></a><strong>stage, scenario, objective, application</strong></h5><p><strong>stage:</strong></p>
+<p><img src="/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/stage.png" alt="stage"></p>
 <p>Matching:这个阶段的核心任务是高效地检索潜在的相关项，并获得用户兴趣的粗粒度建模。</p>
 <p>Ranking:这个阶段的关键挑战是设计适当的模型来捕获复杂的特性交互。</p>
 <p>Re-ranking:满足其他重要的要求，比如新鲜度、多样性、公平性,这个阶段的主要关注点是考虑得分最高的项目之间的多重关系,例如，相似的或可替换的项目可能导致信息冗余.  </p>
@@ -333,11 +340,13 @@
 <p><strong>Social Recommendation</strong>:</p>
 <p>视频平台可能只是因为微信好友的喜欢行为而喜欢一些视频。 在 与此同时，社会同质性是许多社交平台上的另一个流行现象，即人们倾向于与有相似偏好的人建立社会关系</p>
 <p><strong>Sequential Recommendation</strong>:</p>
+<p><img src="/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/sequence.png" alt="sequence"></p>
 <p>顺序推荐使用用户的历史记录行为序列学习时间戳感知的序列模式，以推荐下一个项目用户可能会感兴趣</p>
 <p>当序列长度增加时，同时对用户的短期、长期和动态兴趣进行建模</p>
 <p>因为物品可以在多个序列中出现或者用户有多个序列，不同序列之间需要协作信号</p>
 <p>**Session-based Recommendation.**：</p>
 <p>用户属性和长期的历史互动是不可用的，只有来自匿名用户的短会话数据</p>
+<p><img src="/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/session.png" alt="session"></p>
 <p>**Bundle Recommendation.**：</p>
 <p>Bundle是一种物品的集合，这是一种重要的营销方式 产品推广策略, Bundle推荐的目的是推荐一个组合  </p>
 <p>供用户消费的项目比如，Spotify上的音乐播放列表、Pinterest上的插页板、亚马逊上的电脑和宜家上的家具套装</p>
@@ -355,8 +364,59 @@
 <p>个体层次的多样性反映了推荐列表涵盖的主题数量以及推荐条目在不同主题上分布的平衡性</p>
 <p>系统级多样性有时被称为长尾推荐，低系统级多样性意味着总是推荐所有用户的流行项目，而忽略长尾项目</p>
 <p><strong>Explainability</strong>：可解释性</p>
+<p>可解释的推荐系统的重点不仅是产生准确的推荐结果，而且有说服力的解释，说明如何和为什么该物品被推荐给一个特定的用户 ，过去的研究采用了两种不同的方法，一种是努力设计内在可解释模型，保证推荐结果的可解释性如主题模型，另一种设计了专门的独立模型来解释由“黑箱”产生的结果，例如，解释挖掘  </p>
 <p><strong>Fairness</strong>： 公平性</p>
-<p>application:</p>
+<p>推荐系统中的公平性可以分为两类：</p>
+<p>用户公平和物品公平：用户公平试图确保特定用户之间没有算法偏见 ，物品公平，公平暴露的不同  </p>
+<p>物品，或者不同物品之间没有流行偏好。越来越多的证据表明，利用图表数据，例如用户-用户，可以  </p>
+<p>加强对公平的影响。 因此，在丰富的图数据下消除不公平的偏见是具有挑战性的。</p>
+<hr>
+<p><strong>application:</strong></p>
+<p>Product recommendation：商品推荐</p>
+<p>产品推荐，也被称为电子商务推荐，是推荐系统的应用中最著名的推荐之一，因此，处理多种类型的行为是至关重要的与平台利润密切相关，包括添加到购物车或购买。电子商务平台上，产品可能具有丰富的属性，如价格类别等。</p>
+<p>数据集： Amazon , Tmall dataset</p>
+<p>POI (Point-of-interest) recommendation： 兴趣点推荐</p>
+<p>目的是推荐用户下次访问的新地点/兴趣点。  在兴趣点推荐中有两个重要因素，空间因素和时间因素。 空间因素指的是poi自然存在的地理属性，即地理位置。 此外，用户的由于用户不能访问poi，因此访问在很大程度上也受到其地理活动区域的限制 。时间因素也是非常重要的，因为用户的访问/签到行为总是形成一个序列，这引起下一个POI或后续POI推荐问题 。</p>
+<p>数据集： Yelp , Gowalla dataset</p>
+<p>News recommendation：新闻推荐</p>
+<p>新闻推荐帮助用户找到自己喜欢的新闻，这也是另一个典型的应用。 与其他推荐应用不同的是，新闻推荐需要恰当新闻文本的建模。 因此，可以将自然语言处理方法与推荐模型相结合，更好地提取新闻特征。 此外,用户总是对最新的新闻感兴趣，可能会拒绝过时的。 因此，从快速变化的候选池中快速准确地过滤新闻也是至关重要的。 </p>
+<p>数据集：MIND dataset</p>
+<p>Movie recommendation：电影推荐</p>
+<p>电影推荐是最早的推荐系统之一，早期的电影推荐设置是估计用户对电影的评分，标签从一到五，这被称为显式反馈（<em>explicit feedback</em>），最近，二元隐式反馈（<em>implicit feedback</em>）设置更受欢迎。  </p>
+<hr>
+<p><strong>2.2 Graph Neural Networks</strong></p>
+<p>在图表示学习GRL方面，它的目标是生成图节点、边、 或者子图，它表示图的复杂连接结构  </p>
+<p><em>Graph Construction.</em></p>
+<p>•同构图，每条边只连接两个节点，且只有一个节点和边的类型。  </p>
+<p>•异构图，每条边只连接两个节点，且有多个节点或边的类型。  </p>
+<p>•超图，每条边连接两个以上的节点  </p>
+<p>隐性社交媒体关系可以被视为一个统一的图，用节点代表个体，用边连接彼此关注的人。 然而,  </p>
+<p>由于图像和文本等非结构化数据不显式地包含图结构，因此需要手动定义节点和边来构图。</p>
+<p> 知识图谱(KG)，是异构图的一个代表实例。 KG集成了多个数据属性和关系，其中节点和边分别被重新定义为实体和关系。 具体来说，KG中的实体可以涵盖广泛的元素，包括人员、电影、书籍等等。 这些关系被用来描述实体如何与每个实体相关联 。</p>
+<p>超图也被用来灵活地处理更复杂的数据(例如，超越成对关系和多模态)[38]，其中每条边都可以连接两个以上的节点。  </p>
+<p><em>Network Design<img src="/2021/12/14/GNN-for-Recommendation-%E7%BB%BC%E8%BF%B0%E7%AC%94%E8%AE%B0/GNN_type.png" alt="GNN_type"></em></p>
+<p>GNN的关键操作是在结构连接之后的图上传播表示，包括聚合邻域表示，将邻域表示与目标节点表示融合，逐层更新图表示。</p>
+<p><strong>GCN</strong></p>
+<p><strong>GraphSAGE</strong></p>
+<p><strong>GAT</strong></p>
+<p><strong>HetGNN</strong></p>
+<p><strong>HGNN</strong></p>
+<p><em>Model Optimization</em></p>
+<p>经过GNN之后，我们可以得到包含语义特征的节点或边的表示，为了完成下游的图学习任务，这些嵌入将进一步转化为一般神经网络(如MLP)的目标(如节点属于某一类的概率)。 图的分类、预测和回归任务主要有三个层次:  节点、边和子图。 尽管不同的任务是不同的，但有一个标准的程序对模型的优化。</p>
+<p> 对于成对损失函数（pair-wise),采用正负样本对的形式，典型代表BPR loss  </p>
+<p>分类任务通常选择（point-wise）损失函数，例如交叉熵损失  </p>
+<p><strong>为什么推荐系统需要gnn</strong></p>
+<p><strong>将GNNS应用于推荐系统的挑战</strong>  </p>
+<p>关键挑战的四个部分。  </p>
+<p>•如何为特定任务构建合适的图?  </p>
+<p><strong>Graph Constrcution</strong></p>
+<p>•如何设计信息传播与聚合机制?  </p>
+<p> <strong>Network Design</strong></p>
+<p>•如何优化模型?  </p>
+<p><strong>Model Optimization</strong></p>
+<p>•如何保证模型训练和推理的效率?  </p>
+<p><strong>Computation Efficiency</strong></p>
+<p><strong>4 EXISTING METHODS</strong></p>
 <p><strong>开放的问题和未来的方向</strong></p>
 <p>深层GNN捕获图中高阶相似性</p>
 <p>动态图推荐</p>
@@ -428,14 +488,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">38k</span>
+    <span title="站点总字数">40k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">35 分钟</span>
+    <span title="站点阅读时长">36 分钟</span>
   </span>
 </div>
 
