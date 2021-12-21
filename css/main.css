@@ -2785,14 +2785,17 @@ body {
   background-size: cover;
 }
 .content-wrap {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 .sidebar {
-  opacity: 0.9;
+  opacity: 0.85;
 }
 .header-inner {
   background: rgba(255,255,255,0.9);
 }
+.main-inner {
+  opacity: 0.85;
+}
 .popup {
-  opacity: 0.9;
+  opacity: 0.85;
 }
