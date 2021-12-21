@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="之前总结的序列推荐的笔记，也是自己的二刷~ 需要更新的太多了 👩‍🚀 31之前更新~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五篇章-序列推荐总结">
+<meta property="og:url" content="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="origin_star">
+<meta property="og:description" content="之前总结的序列推荐的笔记，也是自己的二刷~ 需要更新的太多了 👩‍🚀 31之前更新~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/1.png">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/581833/1636097583042-ea7a6fea-f812-46d3-876c-db1fae530718.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/2.png">
+<meta property="og:image" content="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/3.png">
+<meta property="article:published_time" content="2021-12-21T13:44:10.000Z">
+<meta property="article:modified_time" content="2021-12-21T13:59:31.049Z">
+<meta property="article:author" content="Xingyuan">
+<meta property="article:tag" content="sequence recommendation">
+<meta property="article:tag" content="序列推荐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/1.png">
+
+
+<link rel="canonical" href="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/","path":"2021/12/21/第五篇章-序列推荐总结/","title":"第五篇章-序列推荐总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第五篇章-序列推荐总结 | origin_star</title>
+  
+
+
+
+
+  <script type="text/javascript" src="/js/my_js/clicklove.js"></script>
+  <!--动态线条背景-->
+  
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+	
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">origin_star</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">xingyuan home</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言板</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#din-dien-dsin-bst%E9%87%8D%E8%AF%BB%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">DIN DIEN DSIN BST重读总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#din%E4%B8%AD-%E4%B9%8B%E5%89%8D%E5%BF%BD%E7%95%A5%E7%9A%84%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">DIN中 之前忽略的点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%8F%E5%88%97pooling%E4%B9%8B%E5%90%8E%E7%9A%84emb%E5%92%8Ctarget%E7%9A%84emb"><span class="nav-number">1.2.</span> <span class="nav-text">序列pooling之后的emb和target的emb</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#attention-weight-%E6%B2%A1%E6%9C%89%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">attention weight 没有归一化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dien%E4%B8%AD-%E5%AE%9E%E4%B9%A0%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E7%82%B9"><span class="nav-number"></span> <span class="nav-text">DIEN中 实习未解决的点：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B4%9F%E9%87%87%E6%A0%B7%E5%BA%8F%E5%88%97%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E4%BD%9C%E7%94%A8"><span class="nav-number">0.1.</span> <span class="nav-text">负采样序列的构建和作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#augru-%E4%B8%AD-target-atten-%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-number">0.2.</span> <span class="nav-text">AUGRU 中 target atten 的构造</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dsin"><span class="nav-number"></span> <span class="nav-text">DSIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bst"><span class="nav-number"></span> <span class="nav-text">BST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%BF%E5%BA%8F%E5%88%97%E5%BB%BA%E6%A8%A1-mimn-sim"><span class="nav-number"></span> <span class="nav-text">长序列建模 MIMN SIM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#can"><span class="nav-number"></span> <span class="nav-text">CAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%85%A8%E9%9D%A2%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">更全面的工作总结：</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xingyuan"
+      src="/images/avatar_2.gif">
+  <p class="site-author-name" itemprop="name">Xingyuan</p>
+  <div class="site-description" itemprop="description">欢迎来到星原小窝</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+	  
+	  
+       <div id="music163player">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=4900028836&auto=1&height=430"></iframe>
+       </div>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_2.gif">
+      <meta itemprop="name" content="Xingyuan">
+      <meta itemprop="description" content="欢迎来到星原小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="origin_star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第五篇章-序列推荐总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+	
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-21 21:44:10 / 修改时间：21:59:31" itemprop="dateCreated datePublished" datetime="2021-12-21T21:44:10+08:00">2021-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90/" itemprop="url" rel="index"><span itemprop="name">序列推荐</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="第五篇章-序列推荐总结" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>之前总结的序列推荐的笔记，也是自己的二刷~</p>
+<p>需要更新的太多了 👩‍🚀 31之前更新~</p>
+<span id="more"></span>
+
+<h3 id="din-dien-dsin-bst重读总结"><a href="#DIN-DIEN-DSIN-BST重读总结" class="headerlink" title="DIN DIEN DSIN BST重读总结"></a>DIN DIEN DSIN BST重读总结</h3><h4 id="din中-之前忽略的点"><a href="#DIN中-之前忽略的点：" class="headerlink" title="DIN中 之前忽略的点："></a>DIN中 之前忽略的点：</h4><p>这部分模型在于建模用户点击序列的id类特征，id组成的句子特征</p>
+<p>除id类特征以外的类别和连续特征靠FM,DNN提取</p>
+<h4 id="序列pooling之后的emb和target的emb"><a href="#序列pooling之后的emb和target的emb" class="headerlink" title="序列pooling之后的emb和target的emb"></a>序列pooling之后的emb和target的emb</h4><p>外积＋残差</p>
+<h4 id="attention-weight-没有归一化"><a href="#attention-weight-没有归一化" class="headerlink" title="attention weight 没有归一化"></a>attention weight 没有归一化</h4><p>更好的反应兴趣</p>
+<p><img src="/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/1.png" alt="img"></p>
+<p>DIN激活函数Dice PReLU</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/581833/1636097583042-ea7a6fea-f812-46d3-876c-db1fae530718.png" alt="img"></p>
+<p>不错的博客：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/365999532">https://zhuanlan.zhihu.com/p/365999532</a></p>
+<p>原github:</p>
+<h2 id="dien中-实习未解决的点"><a href="#DIEN中-实习未解决的点：" class="headerlink" title="DIEN中 实习未解决的点："></a>DIEN中 实习未解决的点：</h2><p>DIEN</p>
+<p>attention score 用户序列的emb和target的emb的相似度 传入AUGRU</p>
+<p>辅助loss auxiliary loss</p>
+<p>负采样序列</p>
+<p><img src="/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/2.png" alt="img"></p>
+<p>原文中提到的作用：</p>
+<p>引入辅助损失有几个优点：从兴趣学习方面，引入辅助损失有助于GRU的每个隐藏状态表达兴趣。</p>
+<p> 优化GRU，辅助损失降低了 GRU 建模长历史行为序列时反向传播的难度。</p>
+<p>辅助损失为嵌入层的学习提供了更多的语义信息，得到更好的emb</p>
+<p>博客中的作用：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/494689375/answer/2217080108">https://www.zhihu.com/question/494689375/answer/2217080108</a></p>
+<p>为了优中选优 </p>
+<p>正样本考虑是否为有效的样本，比如误点，标签修正的方法，</p>
+<p>序列负采样的话可以按照batch内其他用户的点击序列中的item作为负样本，热门未点击等作为负样本，比例的话肯定是和正样本一致的呀</p>
+<h4 id="负采样序列的构建和作用"><a href="#负采样序列的构建和作用" class="headerlink" title="负采样序列的构建和作用"></a>负采样序列的构建和作用</h4><h4 id="augru-中-target-atten-的构造"><a href="#AUGRU-中-target-atten-的构造" class="headerlink" title="AUGRU 中 target atten 的构造"></a>AUGRU 中 target atten 的构造</h4><h2 id="dsin"><a href="#DSIN" class="headerlink" title="DSIN"></a>DSIN</h2><p>给定时间范围内的交互列表</p>
+<p>在兴趣提取层使用self-attention替换DSIN中的GRU。</p>
+<p>兴趣推演层使用Bi-LSTM替换GRU，利用Bi-LSTM 对用户的Session之间的交互进行建模</p>
+<p>self attention  位置编码后每个session内建模 </p>
+<p><strong>Session Interest Activating Layer self-attention和Bi-lstm结果拼接</strong></p>
+<p><strong>bi-lstm 替换AUGRU</strong> </p>
+<h2 id="bst"><a href="#BST" class="headerlink" title="BST"></a>BST</h2><p>transformer 建模 user behavior</p>
+<p>截断用户序列 padding 补齐 </p>
+<p>BST和DIEN的区别：没有对比</p>
+<p>target attention 用作第二层gru 输入的 score</p>
+<p>BST 跟偏向直接用transformer 只有一层</p>
+<p>可改进的地方：</p>
+<p>图神经网络GCN替换LSTM，计算的时候是需要多增加一步：求解输入矩阵的邻接矩阵（adj）并把邻接矩阵和输入矩阵喂给GCN进行特征提取。</p>
+<h2 id="长序列建模-mimn-sim"><a href="#长序列建模-MIMN-SIM" class="headerlink" title="长序列建模 MIMN SIM"></a>长序列建模 MIMN SIM</h2><p>博客链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/423862252">https://zhuanlan.zhihu.com/p/423862252</a></p>
+<p>MIMN</p>
+<p>Practice on Long Sequential User Behavior Modeling for Click-Through Rate Prediction</p>
+<p>建模长序列 解决DIN DIEN 的用户序列在100-200个</p>
+<p>SIM</p>
+<p>Search-based User Interest Modeling with Lifelong Sequential Behavior Data for Click-Through Rate Prediction</p>
+<p><img src="/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/3.png" alt="img"></p>
+<h2 id="can"><a href="#CAN" class="headerlink" title="CAN"></a>CAN</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/287898562">https://zhuanlan.zhihu.com/p/287898562</a></p>
+<h2 id="更全面的工作总结"><a href="#更全面的工作总结：" class="headerlink" title="更全面的工作总结："></a>更全面的工作总结：</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/420995638">https://zhuanlan.zhihu.com/p/42099563</a></p>
+<p>根据query的类型： 可以划分为</p>
+<p>self att , target att , user att</p>
+<p>根据attention的计算方式：可以划分为</p>
+<p>点积模型，双线性模型，加性模型，门控模型</p>
+<p>参考美团Transformer总结：</p>
+<p>BST之后引入target item 相当于之前实习做的工作 (^v^)</p>
+<p>在Transfomer基础上叠加DIN模块里的attention-pooling</p>
+<p>Transformer为什么优于GRU:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Transformer 编码为什么优于 GRU ？忽略 GRU 的性能差于 Transformer；我们做过实验将行为序列长度的上限往下调，Transformer 的效果相比 GRU 的效果提升在缩小，但是整体还是行为序列的长度越大越好，所以Transformer 相比 GRU 在长距离时，特征捕获能力更强。</span><br><span class="line">位置编码（Pos-Encoding）的影响我们试过加 Transformer 里面原生的正余弦以及距当前预测时间的时间间隔的位置编码都无效果，分析应该是我们在处理行为序列的时候，已经将序列切割成不同时间段，一定程度上包含了时序位置信息。为了验证这个想法，我们做了仅使用一个长序列的实验（对照组不加位置编码，实验组加位置编码，离线 NDCG 有提升），这验证了我们的猜测。</span><br></pre></td></tr></table></figure>
+
+<p>胶囊网络：动态路由算法 兴趣划分 对行为序列进行软聚类</p>
+<p>记忆网络： 建模多兴趣/ 建模长期兴趣</p>
+
+    </div>
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sequence-recommendation/" rel="tag"><i class="fa fa-tag"></i> sequence recommendation</a>
+              <a href="/tags/%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90/" rel="tag"><i class="fa fa-tag"></i> 序列推荐</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-python%E7%AC%94%E8%AE%B0/" rel="prev" title="第四篇章-python笔记">
+                  <i class="fa fa-chevron-left"></i> 第四篇章-python笔记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xingyuan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">47k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">43 分钟</span>
+  </span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"pxg5KkG9ObdgHpCWmUIno5TL-gzGzoHsz","app_key":"5g4mEHontJ2nolhwNzVAndk0","server_url":null,"security":false,"betterPerformance":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
