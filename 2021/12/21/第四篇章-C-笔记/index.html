@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":300},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="之前总结的C++的笔记，也是自己的二刷~ 最新的补充在后面🐱‍🚀">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第四篇章-C++笔记">
+<meta property="og:url" content="http://example.com/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-C-%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="origin_star">
+<meta property="og:description" content="之前总结的C++的笔记，也是自己的二刷~ 最新的补充在后面🐱‍🚀">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-21T06:39:43.000Z">
+<meta property="article:modified_time" content="2021-12-21T06:43:02.963Z">
+<meta property="article:author" content="Xingyuan">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-C-%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-C-%E7%AC%94%E8%AE%B0/","path":"2021/12/21/第四篇章-C-笔记/","title":"第四篇章-C++笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第四篇章-C++笔记 | origin_star</title>
+  
+
+
+
+
+  <script type="text/javascript" src="/js/my_js/clicklove.js"></script>
+  <!--动态线条背景-->
+  
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+	
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">origin_star</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">xingyuan home</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言板</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vector-%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">vector 底层实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort%E5%87%BD%E6%95%B0%E5%9C%A8stl%E4%B8%AD%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">sort函数在STL中的底层实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new%E5%92%8Cmalloc%E7%9A%84%E5%8C%BA%E5%88%ABc%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E5%85%A5new"><span class="nav-number"></span> <span class="nav-text">new和malloc的区别，C++为什么要引入new</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emplace_back"><span class="nav-number"></span> <span class="nav-text">emplace_back</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">C++重载和重写的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E4%B8%AD%E6%89%BE%E5%87%BA%E5%89%8Dk%E5%A4%A7%E6%95%B0topk%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">海量数据中找出前k大数（topk问题）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof%E5%92%8Cstrlen%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">sizeof和strlen的区别及使用详解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84%E5%92%8C%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">线性结构和非线性结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">C++内存泄漏及解决方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">6.</span> <span class="nav-text">C++语言中的多态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF"><span class="nav-number">7.</span> <span class="nav-text">c++中的继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c-static-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">8.</span> <span class="nav-text">c++ static 的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#c%E4%B8%AD%E7%9A%84%E6%A8%A1%E6%9D%BF"><span class="nav-number">9.</span> <span class="nav-text">C++中的模板</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xingyuan"
+      src="/images/avatar_2.gif">
+  <p class="site-author-name" itemprop="name">Xingyuan</p>
+  <div class="site-description" itemprop="description">欢迎来到星原小窝</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+	  
+	  
+       <div id="music163player">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=4900028836&auto=1&height=430"></iframe>
+       </div>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-C-%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_2.gif">
+      <meta itemprop="name" content="Xingyuan">
+      <meta itemprop="description" content="欢迎来到星原小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="origin_star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第四篇章-C++笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-21 14:39:43 / 修改时间：14:43:02" itemprop="dateCreated datePublished" datetime="2021-12-21T14:39:43+08:00">2021-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/C-%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">C++笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/12/21/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-C-%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="第四篇章-C++笔记" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>之前总结的C++的笔记，也是自己的二刷~</p>
+<p>最新的补充在后面🐱‍🚀</p>
+<span id="more"></span>
+
+
+
+<p>[toc]</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">宏替换在程序编译时，就由编译程序对出现的宏名进行了相应的宏替换，因此宏替换不占用程序的运行时间 </span><br><span class="line">C语言有效的预处理命令总是以“#”开头</span><br><span class="line">（1）头文件包含#include</span><br><span class="line">（2）宏定义 #define</span><br><span class="line">（3）条件编译 #ifdef  #endif</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果MyClass为一个类，执行”MyClass a[<span class="number">5</span>], *b[<span class="number">6</span>]”语言会自动调用该类构造函数的次数是()</span><br><span class="line"></span><br><span class="line">MyClass a[<span class="number">5</span>]，会创建<span class="number">5</span>个对象，所以会自动调用<span class="number">5</span>次构造函数，但是MyClass *b[<span class="number">6</span>],这不会自动调用构造函数，因为这是声明一个指向<span class="number">6</span>个元素的数组的指针，指针声明的时候是不分配空间的，所以不会调用构造函数，没有指向一个有效的内存空间。</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List封装了链表,Vector封装了数组, list和vector得最主要的区别在于:</span><br><span class="line">vector使用连续内存存储的，他支持[]运算符，而list是以链表形式实现的，不支持[]。</span><br><span class="line">Map,Set属于标准关联容器，使用了非常高效的平衡检索二叉树：红黑树，</span><br><span class="line">他的插入删除效率比其他序列容器高是因为不需要做内存拷贝和内存移动，而直接替换指向节点的指针即可。</span><br><span class="line">只有dqeue和vector是连续存储的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector指明连续内存</span><br><span class="line">当 vector 的大小和容量相等（size==capacity）也就是满载时，如果再向其添加元素，那么 vector 就需要扩容。vector 容器扩容的过程需要经历以下 3 步：</span><br><span class="line">完全弃用现有的内存空间，重新申请更大的内存空间；</span><br><span class="line">将旧内存空间中的数据，按原有顺序移动到新的内存空间中；</span><br><span class="line">最后将旧的内存空间释放。</span><br></pre></td></tr></table></figure>
+
+<h4 id="vector-底层实现"><a href="#vector-底层实现" class="headerlink" title="vector 底层实现"></a>vector 底层实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vector 是最常用的容器之一，其底层所采用的数据结构非常简单，就只是一段连续的线性内存空间</span><br><span class="line"></span><br><span class="line">通过分析 vector 容器的源代码不难发现，它就是使用 3 个迭代器（可以理解成指针）来表示的：</span><br><span class="line">纯文本复制</span><br><span class="line">//_Alloc 表示内存分配器，此参数几乎不需要我们关心</span><br><span class="line">template &lt;class _Ty, class _Alloc = allocator&lt;_Ty&gt;&gt;</span><br><span class="line">class vector&#123;</span><br><span class="line">    ...</span><br><span class="line">protected:</span><br><span class="line">    pointer _Myfirst;</span><br><span class="line">    pointer _Mylast;</span><br><span class="line">    pointer _Myend;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">http://c.biancheng.net/view/6901.html</span><br></pre></td></tr></table></figure>
+
+<h4 id="sort函数在stl中的底层实现"><a href="#sort函数在STL中的底层实现" class="headerlink" title="sort函数在STL中的底层实现"></a>sort函数在STL中的底层实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/Hanani_Jia/article/details/82498469</span><br></pre></td></tr></table></figure>
+
+<p>cplusplus官网</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STL中的sort并非只是普通的快速排序，除了对普通的快速排序进行优化，它还结合了插入排序和堆排序。根据不同的数量级别以及不同情况，能自动选用合适的排序方法。当数据量较大时采用快速排序，分段递归。一旦分段后的数据量小于某个阀值，为避免递归调用带来过大的额外负荷，便会改用插入排序。而如果递归层次过深，有出现最坏情况的倾向，还会改用堆排序。</span><br><span class="line"></span><br><span class="line">快速排序最关键的地方在于枢轴的选择，最坏的情况发生在分割时产生了一个空的区间，这样就完全没有达到分割的效果。STL采用的做法称为median-of-three，即取整个序列的首、尾、中央三个地方的元素，以其中值作为枢轴。</span><br><span class="line"></span><br><span class="line">https://blog.csdn.net/vanturman/article/details/81706538?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">stl 底层</span><br><span class="line">https://www.jianshu.com/p/834cc223bb57</span><br><span class="line">vector 底层是数组</span><br><span class="line">1、O(1)时间的快速访问；</span><br><span class="line">2、顺序存储，所以插入到非尾结点位置所需时间复杂度为O(n)，删除也一样；</span><br><span class="line">3、扩容规则： </span><br><span class="line">当我们新建一个vector的时候，会首先分配给他一片连续的内存空间，如std::vector&lt;int&gt; vec，当通过push_back向其中增加元素时，如果初始分配空间已满，就会引起vector扩容，其扩容规则在gcc下以2倍方式完成：</span><br><span class="line">首先重新申请一个2倍大的内存空间；</span><br><span class="line">然后将原空间的内容拷贝过来；</span><br><span class="line">最后将原空间内容进行释放，将内存交还给操作系统；</span><br><span class="line"></span><br><span class="line">map  关联容器 提供一对一key-value数据处理能力 底层数据结构为红黑树</span><br><span class="line">list的底层数据结构为双向链表，特点是支持快速的增删。</span><br><span class="line">queue为单向队列，为先入先出原则。</span><br><span class="line">deque为双向队列，其对比queue可以实现在头尾两端高效的插入和删除操作。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">虚函数</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="new和malloc的区别c为什么要引入new"><a href="#new和malloc的区别，C-为什么要引入new" class="headerlink" title="new和malloc的区别，C++为什么要引入new"></a>new和malloc的区别，C++为什么要引入new</h3><p> malloc与free是c++/c语言的标准函数，new/delete是C++的运算符 </p>
+<p> new和delete是C++关键字，需要编译器支持；malloc和free是库函数，需要头文件支持。</p>
+<p>malloc并不是说比不上new，它们各自有适用的地方。在C++这种偏重OOP的语言，使用new/delete自然是更合适的 </p>
+<p> new操作符从自由存储区（free store）上为对象动态分配内存空间，而malloc函数从堆上动态分配内存。自由存储区是C++基于new操作符的一个抽象概念，凡是通过new操作符进行内存申请，该内存即为自由存储区。而堆是操作系统中的术语，是操作系统所维护的一块特殊内存，用于程序的内存动态分配，C语言使用malloc从堆上分配内存，使用free释放已分配的对应内存。 </p>
+<p>参考链接： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ywliao/articles/8116622.html">https://www.cnblogs.com/ywliao/articles/8116622.html</a> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new会先调用operator new函数，申请足够的内存（通常底层使用malloc实现）。然后调用类型的构造函数，初始化成员变量，最后返回自定义类型指针。delete先调用析构函数，然后调用operator delete函数释放内存（通常底层使用free实现）。</span><br><span class="line"></span><br><span class="line">    malloc/free是库函数，只能动态的申请和释放内存，无法强制要求其做自定义类型对象构造和析构工作。</span><br></pre></td></tr></table></figure>
+
+<p>参考链接 ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/nyist_zxp/article/details/80810742">https://blog.csdn.net/nyist_zxp/article/details/80810742</a></p>
+<h3 id="emplace_back"><a href="#emplace-back" class="headerlink" title="emplace_back"></a>emplace_back</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="c重载和重写的区别"><a href="#C-重载和重写的区别" class="headerlink" title="C++重载和重写的区别"></a>C++重载和重写的区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">重载应该是对函数进行重载，名称相同参数不同，而重写应该是指的对父类的虚函数重写覆盖</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">重写的底层实现 虚函数表</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">动态分派：类在方法区建立一个虚方法表（invokevirtual指令），使用虚方法表索引来代替元数据查找以提高性能。</span><br><span class="line">虚方法表中存放各个方法的实际入口地址。</span><br><span class="line"></span><br><span class="line">如果某个方法在子类没有被重写，则子类的虚方法表里面的地址入口和父类相同方法的地址入口一致。</span><br><span class="line"></span><br><span class="line">如果被重写，子类方法表中的地址将会被替换为指向子类实现版本的入口地址。</span><br><span class="line"></span><br><span class="line">版权声明：本文为CSDN博主「菜鸡小王子」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/qq_35181209/article/details/77089724</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="海量数据中找出前k大数topk问题"><a href="#海量数据中找出前k大数（topk问题）" class="headerlink" title="海量数据中找出前k大数（topk问题）"></a>海量数据中找出前k大数（topk问题）</h4><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/djrm11/article/details/87924616">https://blog.csdn.net/djrm11/article/details/87924616</a> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">堆排序和快排</span><br></pre></td></tr></table></figure>
+
+<p>spark topk</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/232704">spark-TopK算法-阿里云开发者社区 (aliyun.com)</a></p>
+<p>首先实现word count</p>
+<p>分词后交换key/value</p>
+<p>sortByKey排序</p>
+<h4 id="sizeof和strlen的区别及使用详解"><a href="#sizeof和strlen的区别及使用详解" class="headerlink" title="sizeof和strlen的区别及使用详解"></a>sizeof和strlen的区别及使用详解</h4><p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/magic_world_wow/article/details/80500473">https://blog.csdn.net/magic_world_wow/article/details/80500473</a> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一次记忆</span><br><span class="line">sizeof 是运算符</span><br><span class="line"></span><br><span class="line">strlen 是函数</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="线性结构和非线性结构"><a href="#线性结构和非线性结构" class="headerlink" title="线性结构和非线性结构"></a>线性结构和非线性结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">常用的线性结构有：线性表，栈，队列，双队列，串。</span><br><span class="line">关于广义表、数组，是一种非线性的数据结构。</span><br><span class="line">常见的非线性结构有：二维数组，多维数组，广义表，树(二叉树等)，图</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h4 id="c内存泄漏及解决方法"><a href="#C-内存泄漏及解决方法" class="headerlink" title="C++内存泄漏及解决方法"></a>C++内存泄漏及解决方法</h4><p>[C++内存泄漏及解决方法_Clever_Pig的博客-CSDN博客_c++内存泄露</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Clever_Pig/article/details/75050398">https://blog.csdn.net/Clever_Pig/article/details/75050398</a></p>
+<h4 id="c语言中的多态"><a href="#C-语言中的多态" class="headerlink" title="C++语言中的多态"></a>C++语言中的多态</h4><p>[浅谈C++多态性_Hackbuteer1的专栏-CSDN博客_c++多态</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hackbuteer1/article/details/7475622">https://blog.csdn.net/hackbuteer1/article/details/7475622</a></p>
+<h4 id="c中的继承"><a href="#c-中的继承" class="headerlink" title="c++中的继承"></a>c++中的继承</h4><p>[C++中的继承_studyhardi的博客-CSDN博客_c++继承</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/studyhardi/article/details/90744785">https://blog.csdn.net/studyhardi/article/details/90744785</a></p>
+<h4 id="c-static-的作用"><a href="#c-static-的作用" class="headerlink" title="c++ static 的作用"></a>c++ static 的作用</h4><p>[C/C++ 中的static关键字 - 知乎 (zhihu.com)</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37439983">https://zhuanlan.zhihu.com/p/37439983</a></p>
+<p>静态变量具有全局变量的生命周期，但只能作用于自己的作用域。</p>
+<h4 id="c中的模板"><a href="#C-中的模板" class="headerlink" title="C++中的模板"></a>C++中的模板</h4>
+    </div>
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/17/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Aspark-streaming-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B/" rel="prev" title="第四篇章-spark笔记-《spark streaming 实时流式大数据处理》">
+                  <i class="fa fa-chevron-left"></i> 第四篇章-spark笔记-《spark streaming 实时流式大数据处理》
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xingyuan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">44k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">40 分钟</span>
+  </span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"pxg5KkG9ObdgHpCWmUIno5TL-gzGzoHsz","app_key":"5g4mEHontJ2nolhwNzVAndk0","server_url":null,"security":false,"betterPerformance":true}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
