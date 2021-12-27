@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":300},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="跨域推荐综述 IJCAI 2021 ： Cross-Domain Recommendation: Challenges, Progress, and Prospects综述作者解读： https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;371162633">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第五篇章-跨域推荐集合">
+<meta property="og:url" content="http://example.com/2021/12/27/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="origin_star">
+<meta property="og:description" content="跨域推荐综述 IJCAI 2021 ： Cross-Domain Recommendation: Challenges, Progress, and Prospects综述作者解读： https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;371162633">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-27T07:01:58.000Z">
+<meta property="article:modified_time" content="2021-12-27T08:11:11.219Z">
+<meta property="article:author" content="Xingyuan">
+<meta property="article:tag" content="推荐">
+<meta property="article:tag" content="综述">
+<meta property="article:tag" content="跨域推荐">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/27/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90%E9%9B%86%E5%90%88/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/27/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90%E9%9B%86%E5%90%88/","path":"2021/12/27/第五篇章-跨域推荐集合/","title":"第五篇章-跨域推荐集合"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第五篇章-跨域推荐集合 | origin_star</title>
+  
+
+
+
+
+  <!-- 引入jQuery -->
+  <script type="text/javascript" src="//libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/my_js/clicklove.js"></script>
+  <!--动态线条背景-->
+  <!-- 雪花特效2 -->
+  <script type="text/javascript" src="/js/snow2.js"></script>
+
+  
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+	
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">origin_star</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">xingyuan home</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-guestbook"><a href="/guestbook/" rel="section"><i class="fa fa-book fa-fw"></i>留言板</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ijcai-2021-cross-domain-recommendation-challenges-progress-and-prospects"><span class="nav-number">1.</span> <span class="nav-text">IJCAI 2021 ： Cross-Domain Recommendation: Challenges, Progress, and Prospects</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E5%9F%9F%E6%8C%89%E7%85%A7%E5%B1%82%E7%BA%A7%E5%88%92%E5%88%86"><span class="nav-number">1.1.</span> <span class="nav-text">不同域按照层级划分：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%B1%BB%E5%9E%8B%E5%88%92%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">按类型划分：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">代表性工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E6%9C%AA%E6%9D%A5%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91"><span class="nav-number">1.3.1.</span> <span class="nav-text">6. 未来研究方向</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ijcai-2020-a-graphical-and-attentional-framework-for-dual-target-cross-domain-recommendation-%E5%92%8C%E7%BB%BC%E8%BF%B0%E5%90%8C%E4%B8%80%E4%BD%9C%E8%80%85"><span class="nav-number">2.</span> <span class="nav-text">IJCAI 2020 A Graphical and Attentional Framework for Dual-Target Cross-Domain Recommendation （和综述同一作者）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ijcai-2017-emcdrcross-domain-recommendation-an-embedding-and-mapping-approach"><span class="nav-number">3.</span> <span class="nav-text">IJCAI 2017 :  EMCDR（Cross-Domain Recommendation: An Embedding and Mapping Approach）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-tmcdrtransfer-meta-framework-for-cross-domain-recommendation-to-cold-start-users"><span class="nav-number">4.</span> <span class="nav-text">2021 TMCDR（Transfer-Meta Framework for Cross-domain Recommendation to Cold-Start Users）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-tkde-a-unified-framework-for-cross-domain-and-cross-system-recommendations-%E5%92%8C%E7%BB%BC%E8%BF%B0%E5%90%8C%E4%B8%80%E4%BD%9C%E8%80%85"><span class="nav-number">5.</span> <span class="nav-text">2021 TKDE A Unified Framework for Cross-Domain and Cross-System Recommendations (和综述同一作者)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-kdd-dual-attentive-sequential-learning-for-cross-domain-click-through-rate-prediction"><span class="nav-number">6.</span> <span class="nav-text">2021 KDD Dual Attentive Sequential Learning for Cross-Domain Click-Through Rate Prediction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-cikm-cross-market-product-recommendation-wsdm2022-%E6%AF%94%E8%B5%9B"><span class="nav-number">7.</span> <span class="nav-text">2021 CIKM Cross-Market Product Recommendation (WSDM2022 比赛)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Xingyuan"
+      src="/images/avatar_2.gif">
+  <p class="site-author-name" itemprop="name">Xingyuan</p>
+  <div class="site-description" itemprop="description">欢迎来到星原小窝</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+	  
+	  
+       <div id="music163player">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=4900028836&auto=1&height=430"></iframe>
+       </div>
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/27/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_2.gif">
+      <meta itemprop="name" content="Xingyuan">
+      <meta itemprop="description" content="欢迎来到星原小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="origin_star">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第五篇章-跨域推荐集合
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+	
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-27 15:01:58 / 修改时间：16:11:11" itemprop="dateCreated datePublished" datetime="2021-12-27T15:01:58+08:00">2021-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90/" itemprop="url" rel="index"><span itemprop="name">跨域推荐</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/12/27/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90%E9%9B%86%E5%90%88/" class="post-meta-item leancloud_visitors" data-flag-title="第五篇章-跨域推荐集合" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>跨域推荐综述</p>
+<h3 id="ijcai-2021-cross-domain-recommendation-challenges-progress-and-prospects"><a href="#IJCAI-2021-：-Cross-Domain-Recommendation-Challenges-Progress-and-Prospects" class="headerlink" title="IJCAI 2021 ： Cross-Domain Recommendation: Challenges, Progress, and Prospects"></a>IJCAI 2021 ： Cross-Domain Recommendation: Challenges, Progress, and Prospects</h3><p>综述作者解读： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/371162633">https://zhuanlan.zhihu.com/p/371162633</a></p>
+<span id="more"></span>
+
+<p>[toc]</p>
+<h4 id="不同域按照层级划分"><a href="#不同域按照层级划分：" class="headerlink" title="不同域按照层级划分："></a>不同域按照层级划分：</h4><p>内容层级相关性（content-level relevance）: 两个或多个领域中，用户之间或产品之间存在共同的内容或者特征（例如关键字、标签）。但是这些领域不存在共同的用户或者产品。</p>
+<p>例如：亚马逊音乐（Amazon music，音乐相关）和奈飞（Netflix，电影相关）。</p>
+<p>用户层级相关性（user-level relevance）: 两个或多个领域中，存在共同用户但是产品层级不同。</p>
+<p>例如：产品层级的不同又可以细分为属性层级（attribute-level）的不同（即类型相同（例如图书）但是属性不同，例如教科书、小说、自传等等）和类型层级（type-level）的不同（例如图书、电影、音乐、服装等等）。</p>
+<p>产品层级相关性（item-level relevance）: 两个或多个领域中，存在共同产品但是用户不同。</p>
+<p>例如：MovieLens和奈飞，都是电影相关的系统，存在大量相同的电影，但是用户不同，或者很难识别用户一致性。这种类型在一些文献里又被称为cross-system recommendation（跨系统推荐）。</p>
+<h4 id="按类型划分"><a href="#按类型划分：" class="headerlink" title="按类型划分："></a>按类型划分：</h4><ul>
+<li><strong>单目标跨域推荐</strong> (<strong>single-target CDR</strong>) 源域        =》   目标域</li>
+</ul>
+<p>具体来说是把在源域中学到的知识或者某种模式直接应用到目标域中充当先验或者正则</p>
+<ul>
+<li><strong>双目标跨域推荐（dual-target CDR）</strong> 源域   《==》   目标域 </li>
+</ul>
+<p>假设源域和目标域都有数据稀疏的问题，并且它们可以互相应用对方的数据知识。以这种方式来看，这两个域是可以同等对待的，两个域都以协同的方式应对数据稀疏问题，这种方式会在域之间学习一个mapping函数，把域独有的因子和域间共享的因子明确区分开来，主要的缺点是学习域独有的因子和域间共享的因子本身就放大了数据的稀疏性问题。</p>
+<ul>
+<li><strong>多领域推荐（Multi-Domain Recommendation）</strong></li>
+</ul>
+<p>针对来之多个领域的特定用户集中用户，推荐来之多个领域的特定产品，本质上这也是single-target CDR，因为推荐的目标是特定一个集合（用户集合）</p>
+<ul>
+<li><strong>多目标跨域推荐（Multi-target CDR）</strong></li>
+</ul>
+<p>同时利用多个领域的数据来同时提升多个领域的推荐精度</p>
+<h4 id="代表性工作"><a href="#代表性工作" class="headerlink" title="代表性工作"></a>代表性工作</h4><p>IJCAI 2017 :  EMCDR</p>
+<p>2021 TMCDR</p>
+<h5 id="6-未来研究方向"><a href="#6-未来研究方向" class="headerlink" title="6. 未来研究方向"></a>6. 未来研究方向</h5><p>（1） 异质化跨域推荐：现有跨域推荐的假设前提是跨域的信息是同质的，但是实际应用场景中，存在跨域的异质信息。</p>
+<p>（2） 序列化跨域推荐：跨域推荐系统也和传统推荐系统一样，面临如何序列化地给用户/产品建模。</p>
+<p>（3） 隐私保护的跨域推荐：现有的跨域推荐方法忽略了信息孤岛的问题。而实际应用场景，用户敏感信息是无法直接跨域分享的。</p>
+<p>另外，数据集稀疏程度、领域间的重叠规模（overlap scale）、以及领域间的关联度，如何分别影响跨域推荐的性能？这些问题同样也值得进一步研究。</p>
+<h3 id="ijcai-2020-a-graphical-and-attentional-framework-for-dual-target-cross-domain-recommendation-和综述同一作者"><a href="#IJCAI-2020-A-Graphical-and-Attentional-Framework-for-Dual-Target-Cross-Domain-Recommendation-（和综述同一作者）" class="headerlink" title="IJCAI 2020 A Graphical and Attentional Framework for Dual-Target Cross-Domain Recommendation （和综述同一作者）"></a>IJCAI 2020 A Graphical and Attentional Framework for Dual-Target Cross-Domain Recommendation （和综述同一作者）</h3><h3 id="ijcai-2017-emcdrcross-domain-recommendation-an-embedding-and-mapping-approach"><a href="#IJCAI-2017-EMCDR（Cross-Domain-Recommendation-An-Embedding-and-Mapping-Approach）" class="headerlink" title="IJCAI 2017 :  EMCDR（Cross-Domain Recommendation: An Embedding and Mapping Approach）"></a>IJCAI 2017 :  EMCDR（Cross-Domain Recommendation: An Embedding and Mapping Approach）</h3><p>三阶段：</p>
+<p>通过MF 和BPR  两种方式生成emb Latent Factor Modeling（生成U/I的隐式向量）</p>
+<p>NeuMF 在跨域推荐中的变体应用 Latent Space Mapping （<strong>源域-&gt;目标域 U/I隐式向量的映射</strong>）</p>
+<h3 id="2021-tmcdrtransfer-meta-framework-for-cross-domain-recommendation-to-cold-start-users"><a href="#2021-TMCDR（Transfer-Meta-Framework-for-Cross-domain-Recommendation-to-Cold-Start-Users）" class="headerlink" title="2021 TMCDR（Transfer-Meta Framework for Cross-domain Recommendation to Cold-Start Users）"></a>2021 TMCDR（Transfer-Meta Framework for Cross-domain Recommendation to Cold-Start Users）</h3><p>两阶段：</p>
+<p>Transfor阶段 全数据在源域和目标域进行预训练</p>
+<p>Meta阶段 [meta-learning]</p>
+<h3 id="2021-tkde-a-unified-framework-for-cross-domain-and-cross-system-recommendations-和综述同一作者"><a href="#2021-TKDE-A-Unified-Framework-for-Cross-Domain-and-Cross-System-Recommendations-和综述同一作者" class="headerlink" title="2021 TKDE A Unified Framework for Cross-Domain and Cross-System Recommendations (和综述同一作者)"></a>2021 TKDE A Unified Framework for Cross-Domain and Cross-System Recommendations (和综述同一作者)</h3><h3 id="2021-kdd-dual-attentive-sequential-learning-for-cross-domain-click-through-rate-prediction"><a href="#2021-KDD-Dual-Attentive-Sequential-Learning-for-Cross-Domain-Click-Through-Rate-Prediction" class="headerlink" title="2021 KDD Dual Attentive Sequential Learning for Cross-Domain Click-Through Rate Prediction"></a>2021 KDD Dual Attentive Sequential Learning for Cross-Domain Click-Through Rate Prediction</h3><p>作者解读：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/448854044">https://zhuanlan.zhihu.com/p/448854044</a></p>
+<h3 id="2021-cikm-cross-market-product-recommendation-wsdm2022-比赛"><a href="#2021-CIKM-Cross-Market-Product-Recommendation-WSDM2022-比赛" class="headerlink" title="2021 CIKM Cross-Market Product Recommendation (WSDM2022 比赛)"></a>2021 CIKM Cross-Market Product Recommendation (WSDM2022 比赛)</h3>
+    </div>
+
+	<div>
+		
+			<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+		
+	</div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8E%A8%E8%8D%90/" rel="tag"><i class="fa fa-tag"></i> 推荐</a>
+              <a href="/tags/%E7%BB%BC%E8%BF%B0/" rel="tag"><i class="fa fa-tag"></i> 综述</a>
+              <a href="/tags/%E8%B7%A8%E5%9F%9F%E6%8E%A8%E8%8D%90/" rel="tag"><i class="fa fa-tag"></i> 跨域推荐</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/21/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%BA%8F%E5%88%97%E6%8E%A8%E8%8D%90%E6%80%BB%E7%BB%93/" rel="prev" title="第五篇章-序列推荐总结">
+                  <i class="fa fa-chevron-left"></i> 第五篇章-序列推荐总结
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xingyuan</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">56k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">51 分钟</span>
+  </span>
+</div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"pxg5KkG9ObdgHpCWmUIno5TL-gzGzoHsz","app_key":"5g4mEHontJ2nolhwNzVAndk0","server_url":"https://pxg5kkg9.lc-cn-n1-shared.com","security":false,"betterPerformance":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
