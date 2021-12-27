@@ -143,17 +143,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -188,6 +188,239 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/13/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Ascala%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_2.gif">
+      <meta itemprop="name" content="Xingyuan">
+      <meta itemprop="description" content="欢迎来到星原小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="origin_star">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/13/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Ascala%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%8B/" class="post-title-link" itemprop="url">第四篇章-spark笔记-《scala实用指南》《spark streaming实时流式大数据处理》</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+	
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-13 10:21:51" itemprop="dateCreated datePublished" datetime="2021-12-13T10:21:51+08:00">2021-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-12-17 15:08:14" itemprop="dateModified" datetime="2021-12-17T15:08:14+08:00">2021-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%9B%BE%E4%B9%A6/" itemprop="url" rel="index"><span itemprop="name">技术图书</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/12/13/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Ascala%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%8B/" class="post-meta-item leancloud_visitors" data-flag-title="第四篇章-spark笔记-《scala实用指南》《spark streaming实时流式大数据处理》" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>– begin –</p>
+<p>之前实习只是粗略的写过几个scala case，这里通过《scala实用指南》《spark streaming实时流式大数据处理》系统的学习一下🐱‍🚀</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/13/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Ascala%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E3%80%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+	<div>
+		
+	</div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/10/%E3%80%8A%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8%E3%80%8B-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar_2.gif">
+      <meta itemprop="name" content="Xingyuan">
+      <meta itemprop="description" content="欢迎来到星原小窝">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="origin_star">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/10/%E3%80%8A%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8%E3%80%8B-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">《贫穷的本质》 阅读笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+	
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-10 18:23:27" itemprop="dateCreated datePublished" datetime="2021-12-10T18:23:27+08:00">2021-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-12-13 21:41:31" itemprop="dateModified" datetime="2021-12-13T21:41:31+08:00">2021-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%93%B2%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">哲理</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/12/10/%E3%80%8A%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8%E3%80%8B-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="《贫穷的本质》 阅读笔记" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p>主线外的阅读《贫穷的本质：我们为什么摆脱不了贫穷》，之后还是会以技术类的图书为主，也算是两天为了更博速通的一本书，虽然是在讲贫穷地区的状况，其实主要还是希望能从中找到自己能够改进的地方。</p>
+<h4 id="总结篇"><a href="#总结篇" class="headerlink" title="总结篇"></a>总结篇</h4><p>鉴于经济增长需要人力与智慧，但无论何时，如果男人和女人都受过良好的教育、拥有健康的身体，如果市民们在为孩子投资方面具有安全感和信心，让孩子们走出家门，到市里去找一份新工作，那么人们就更容易摆脱贫困，这看上去似乎是合理的。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/10/%E3%80%8A%E8%B4%AB%E7%A9%B7%E7%9A%84%E6%9C%AC%E8%B4%A8%E3%80%8B-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+	<div>
+		
+	</div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -905,7 +1138,7 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">57k</span>
+    <span title="站点总字数">58k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
