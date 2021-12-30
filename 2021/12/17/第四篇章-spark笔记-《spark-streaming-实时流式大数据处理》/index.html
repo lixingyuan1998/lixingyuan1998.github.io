@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://example.com/2021/12/17/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Aspark-streaming-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B/streami1.png">
 <meta property="og:image" content="http://example.com/2021/12/17/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-spark%E7%AC%94%E8%AE%B0-%E3%80%8Aspark-streaming-%E5%AE%9E%E6%97%B6%E6%B5%81%E5%BC%8F%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E3%80%8B/KAFKA.png">
 <meta property="article:published_time" content="2021-12-17T10:37:30.000Z">
-<meta property="article:modified_time" content="2021-12-28T11:48:56.341Z">
+<meta property="article:modified_time" content="2021-12-30T08:08:56.802Z">
 <meta property="article:author" content="Xingyuan">
 <meta property="article:tag" content="图书笔记">
 <meta property="article:tag" content="spark">
@@ -155,17 +155,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -243,7 +243,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-12-28 19:48:56" itemprop="dateModified" datetime="2021-12-28T19:48:56+08:00">2021-12-28</time>
+      <time title="修改时间：2021-12-30 16:08:56" itemprop="dateModified" datetime="2021-12-30T16:08:56+08:00">2021-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -269,7 +269,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -336,10 +336,15 @@
 <p>生产者接口（Producer API）：一个应用通过该接口可以向Kafka中的一个或多个topics发布记录流，向其中“灌”数据（例如我们从网上不断地爬取用户的评论信息，不断向Kafka中发布这些信息，一条用户评论可以看做一条记录）</p>
 <p>HBase</p>
 <p>HBase是一个非关系型数据库，其用Java实现，属于Hadoop的一部分,HBase最明显的特点是：面向列，以行排序。通常HBase的表格由多个列族构成</p>
-<p>spark与MapReduce区别： 架构，速度，容错，功能</p>
+<p>spark与MapReduce区别：</p>
+<p> 架构，速度，容错，功能四个角度</p>
 <p>Spark采用的是经典的scheduler/workers模式， 每个Spark应用程序运行的第一步是构建一个可重用的资源池，然后在这个资源池里运行所有的ShuffleMapTask和ReduceTask<br>MapReduce采用了多进程模型，而Spark采用了多线程模型。多进程模型便于细粒度控制每个任务占用的资源，但会消耗较多的启动时间，不适合运行低延迟类型的作业<br>spark把中间计算结果存放在内存中，减少迭代过程中的数据落地，能够实现数据高效共享，迭代运算效率高；当然也有部分计算基于磁盘，比如Shuffle，但是其大量Transformation操作，比如单纯的map或者filter等操作可以直接基于内存进行pipeline操作。<br>mapreduce中的计算中间结果是保存在磁盘上的，产生了大量的I/O操作,效率很低</p>
 <p>spark如果数据集一部分数据丢失，则可以根据血统来对它们进行重建；另外在RDD计算时可以通过checkpoint来实现容错，checkpoint有两种方式，即checkpiont data 和logging the updates</p>
 <p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41579433/article/details/108890483">https://blog.csdn.net/weixin_41579433/article/details/108890483</a></p>
+<p>Spark术语比如task，stage等的解释；SQL的join；数据倾斜的解决等</p>
+<p>基础知识方面问了Spark：Spark Dataframe，Spark Stream，Spark SQL语法知识等。</p>
+<p>大数据方向：<br> groupbykey,reducebykey,combinebykey<br> groupbykey按照key来分成group<br> reducebykey按照key来进行操作combFunc<br> aggregateByKey按照key操作，多了一个zerovalue<br> combinebykey每个分区计数，不同分区再计数<br> udf函数？<br> 数据倾斜问题解决？ <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/64240857">https://zhuanlan.zhihu.com/p/64240857</a><br> 什么是数据倾斜？在shuffle操作时，按照key进行value的输出、拉取和聚合<br> 对于有的key需要分配reduce task来处理，但是太多了，所以某些task处理很慢<br> 1.哪里会出现shuffle，groupByKey、countByKey、reduceByKey、join<br> 对于拿到的hive数据，本身就是key|value1，value2,value3，不再有shuffle操作,直接map<br> 2.聚合数据，用的粒度粗一点，不要直接80w计算，而是多分几个类型再聚合<br> 3.指定shuffle的并行度，给任务大的task多一些worker<br> 4.小数据和大数据做的时候，小数据复制很多份</p>
+<p>多头注意力机制的原理是什么</p>
 
     </div>
 
@@ -408,14 +413,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">63k</span>
+    <span title="站点总字数">66k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">57 分钟</span>
+    <span title="站点阅读时长">1:01</span>
   </span>
 </div>
 
