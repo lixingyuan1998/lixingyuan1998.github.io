@@ -20,30 +20,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"width":300},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="激活函数，损失函数汇总 z 先记录一下 ELU Dice 损失在语雀中未加描述 在加优化器 Adam AdamW Adagrad  (12.30 更新)">
+<meta name="description" content="看面经发现还没有总结过图表示学习最基础的模型 这一节汇总一下基础： 从Deepwalk,LINE，Node2vec 到GCN,GAT,GraphSage 公式+代码+优缺点 需要更新的太多了 👩‍🚀 (12&#x2F;30) 更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第四篇章-深度学习-激活函数损失函数全集">
-<meta property="og:url" content="http://example.com/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%85%A8%E9%9B%86/index.html">
+<meta property="og:title" content="第五篇章-图表示学习基础">
+<meta property="og:url" content="http://example.com/2021/12/30/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="origin_star">
-<meta property="og:description" content="激活函数，损失函数汇总 z 先记录一下 ELU Dice 损失在语雀中未加描述 在加优化器 Adam AdamW Adagrad  (12.30 更新)">
+<meta property="og:description" content="看面经发现还没有总结过图表示学习最基础的模型 这一节汇总一下基础： 从Deepwalk,LINE，Node2vec 到GCN,GAT,GraphSage 公式+代码+优缺点 需要更新的太多了 👩‍🚀 (12&#x2F;30) 更新">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-30T08:11:35.000Z">
-<meta property="article:modified_time" content="2021-12-30T09:17:18.398Z">
+<meta property="article:published_time" content="2021-12-30T09:06:02.000Z">
+<meta property="article:modified_time" content="2021-12-30T09:39:44.561Z">
 <meta property="article:author" content="Xingyuan">
-<meta property="article:tag" content="深度学习">
-<meta property="article:tag" content="激活函数">
-<meta property="article:tag" content="损失函数">
+<meta property="article:tag" content="GNN">
+<meta property="article:tag" content="图表示学习">
+<meta property="article:tag" content="搭建hexo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%85%A8%E9%9B%86/">
+<link rel="canonical" href="http://example.com/2021/12/30/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%85%A8%E9%9B%86/","path":"2021/12/30/第四篇章-深度学习-激活函数损失函数全集/","title":"第四篇章-深度学习-激活函数损失函数全集"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/30/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/","path":"2021/12/30/第五篇章-图表示学习基础/","title":"第五篇章-图表示学习基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>第四篇章-深度学习-激活函数损失函数全集 | origin_star</title>
+<title>第五篇章-图表示学习基础 | origin_star</title>
   
 
 
@@ -203,7 +203,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%85%A8%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/30/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_2.gif">
@@ -216,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第四篇章-深度学习-激活函数损失函数全集
+          第五篇章-图表示学习基础
         </h1>
 
         <div class="post-meta-container">
@@ -230,7 +230,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-30 16:11:35 / 修改时间：17:17:18" itemprop="dateCreated datePublished" datetime="2021-12-30T16:11:35+08:00">2021-12-30</time>
+      <time title="创建时间：2021-12-30 17:06:02 / 修改时间：17:39:44" itemprop="dateCreated datePublished" datetime="2021-12-30T17:06:02+08:00">2021-12-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,12 +238,12 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
         </span>
     </span>
 
   
-    <span id="/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E5%85%A8%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="第四篇章-深度学习-激活函数损失函数全集" title="阅读次数">
+    <span id="/2021/12/30/%E7%AC%AC%E4%BA%94%E7%AF%87%E7%AB%A0-%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/" class="post-meta-item leancloud_visitors" data-flag-title="第五篇章-图表示学习基础" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -256,7 +256,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>64</span>
+      <span>206</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -274,13 +274,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>激活函数，损失函数汇总 z</p>
-<p>先记录一下 ELU Dice</p>
-<p>损失在语雀中未加描述</p>
-<p>在加优化器</p>
-<p>Adam AdamW Adagrad </p>
-<p>(12.30 更新)</p>
+        <p>看面经发现还没有总结过图表示学习最基础的模型</p>
+<p>这一节汇总一下基础：</p>
+<p>从Deepwalk,LINE，Node2vec</p>
+<p>到GCN,GAT,GraphSage</p>
+<p>公式+代码+优缺点</p>
+<p>需要更新的太多了 👩‍🚀</p>
+<p>(12/30) 更新</p>
 <span id="more"></span>
+
+
+
+
+
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/338051122/answer/2282566492">https://www.zhihu.com/question/338051122/answer/2282566492</a></p>
+<p>​                    <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390836594">https://zhuanlan.zhihu.com/p/390836594</a></p>
+
     </div>
 
 	<div>
@@ -299,23 +308,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 深度学习</a>
-              <a href="/tags/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 激活函数</a>
-              <a href="/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/" rel="tag"><i class="fa fa-tag"></i> 损失函数</a>
+              <a href="/tags/GNN/" rel="tag"><i class="fa fa-tag"></i> GNN</a>
+              <a href="/tags/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 图表示学习</a>
+              <a href="/tags/%E6%90%AD%E5%BB%BAhexo/" rel="tag"><i class="fa fa-tag"></i> 搭建hexo</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/12/29/%E7%AC%AC%E4%BA%8C%E7%AF%87%E7%AB%A0-%E6%A6%82%E7%8E%87%E9%A2%98%E9%9B%86%E5%90%88/" rel="prev" title="第二篇章-概率题集合">
-                  <i class="fa fa-chevron-left"></i> 第二篇章-概率题集合
+                <a href="/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%85%A8%E9%9B%86/" rel="prev" title="第四篇章-树模型全集">
+                  <i class="fa fa-chevron-left"></i> 第四篇章-树模型全集
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/12/30/%E7%AC%AC%E5%9B%9B%E7%AF%87%E7%AB%A0-%E6%A0%91%E6%A8%A1%E5%9E%8B%E5%85%A8%E9%9B%86/" rel="next" title="第四篇章-树模型全集">
-                  第四篇章-树模型全集 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
