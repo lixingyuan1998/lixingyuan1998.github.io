@@ -28,7 +28,7 @@
 <meta property="og:description" content="之前总结的C++的笔记，也是自己的二刷~ 最新的补充在后面🐱‍🚀 (12.21 更新) (12.22 更新 填了不少坑了 发现填的越多不会的就越多🤕) 之后剩余的坑统一填把">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-21T06:39:43.000Z">
-<meta property="article:modified_time" content="2021-12-30T09:28:41.524Z">
+<meta property="article:modified_time" content="2022-01-05T07:36:35.842Z">
 <meta property="article:author" content="Xingyuan">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -157,7 +157,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -235,7 +235,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2021-12-30 17:28:41" itemprop="dateModified" datetime="2021-12-30T17:28:41+08:00">2021-12-30</time>
+      <time title="修改时间：2022-01-05 15:36:35" itemprop="dateModified" datetime="2022-01-05T15:36:35+08:00">2022-01-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +290,7 @@
 
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果MyClass为一个类，执行”MyClass a[<span class="number">5</span>], *b[<span class="number">6</span>]”语言会自动调用该类构造函数的次数是()</span><br><span class="line"></span><br><span class="line">MyClass a[<span class="number">5</span>]，会创建<span class="number">5</span>个对象，所以会自动调用<span class="number">5</span>次构造函数，但是MyClass *b[<span class="number">6</span>],这不会自动调用构造函数，因为这是声明一个指向<span class="number">6</span>个元素的数组的指针，指针声明的时候是不分配空间的，所以不会调用构造函数，没有指向一个有效的内存空间。</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">List封装了链表,Vector封装了数组, list和vector得最主要的区别在于:</span><br><span class="line">vector使用连续内存存储的，他支持[]运算符，而list是以链表形式实现的，不支持[]。</span><br><span class="line">Map,Set属于标准关联容器，使用了非常高效的平衡检索二叉树：红黑树，</span><br><span class="line">他的插入删除效率比其他序列容器高是因为不需要做内存拷贝和内存移动，而直接替换指向节点的指针即可。</span><br><span class="line">只有dqeue和vector是连续存储的</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List封装了链表,Vector封装了数组, list和vector得最主要的区别在于:</span><br><span class="line">vector使用连续内存存储的，他支持[]运算符，而list是以链表形式实现的，不支持[]。</span><br><span class="line">Map,Set属于标准关联容器，使用了非常高效的平衡检索二叉树：红黑树，</span><br><span class="line">他的插入删除效率比其他序列容器高是因为不需要做内存拷贝和内存移动，而直接替换指向节点的指针即可。</span><br><span class="line">只有dqeue和vector是连续存储的</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector指明连续内存</span><br><span class="line">当 vector 的大小和容量相等（size==capacity）也就是满载时，如果再向其添加元素，那么 vector 就需要扩容。vector 容器扩容的过程需要经历以下 3 步：</span><br><span class="line">完全弃用现有的内存空间，重新申请更大的内存空间；</span><br><span class="line">将旧内存空间中的数据，按原有顺序移动到新的内存空间中；</span><br><span class="line">最后将旧的内存空间释放。</span><br></pre></td></tr></table></figure>
 
@@ -434,14 +434,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">73k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:05</span>
+    <span title="站点阅读时长">1:06</span>
   </span>
 </div>
 
